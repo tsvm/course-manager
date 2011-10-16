@@ -1,0 +1,5 @@
+%h1
+  Курсове
+- @courses.each do |course|
+  .entry
+    = link_to course.title, course_path(course)

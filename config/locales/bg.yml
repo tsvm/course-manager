@@ -1,0 +1,27 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+bg:
+  subscribers:
+    messages:
+      notice: "За да завършите регистрацията си проверете своята електронна поща."
+  courses:
+    course:
+      sold_out: "всички места в залата вече са заети!"
+      sold_out_message: "Ако желаете да бъдете сред първите, които ще научат за следващите курсове,
+                         можете да оставите своите данни тук:"
+
+  date:
+    month_names: [~, януари, февруари, март, април, май, юни, юли, август, септември, октомври, ноември, декември]
+
+    formats:
+      default: "%d %B %Y"
+
+  time:
+    formats:
+      default: "%d %B %Y, %H:%M ч."
+
+  activerecord:
+    errors:
+      messages:
+        blank: "* Полето е задължително"

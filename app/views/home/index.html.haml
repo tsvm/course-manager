@@ -1,0 +1,24 @@
+- if @course
+  .topic
+  = render 'courses/course'
+
+  - if student_signed_in?
+    - if current_student.enrolled_for_course? @course
+      Записан сте за този курс
+    - else
+      = render template: 'enrollments/new'
+  - else
+    = link_to "Влезте в профила си", new_student_session_path
+    или
+    = link_to "се Регистрирайте", new_student_registration_path
+    за да се запишете за курса
+
+- else
+  %p В момента няма никакви създадени курсове. Моля използвайте <a href="/admin/">административния интерфейс</a>, за да създадете курс.
+
+%br
+%span.notice
+  = flash[:notice]
+
+%br
+

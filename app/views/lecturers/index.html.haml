@@ -1,0 +1,8 @@
+%h1
+  Лектори
+- @lecturers.each do |lecturer|
+  .entry
+    = link_to lecturer.name, lecturer_path(lecturer)
+    &nbsp;
+    = lecturer.info
+

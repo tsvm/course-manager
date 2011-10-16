@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tag
+%body
+  #page
+    #header
+      #header_content
+        - if student_signed_in?
+          = "Hi, #{current_student.first_name} |"
+          = link_to "изход", destroy_student_session_path
+    #content_wrapper
+      #content
+        = yield
+
+    #footer
+      %hr
+      #footer_content
+        #footer_left
+        #footer_right

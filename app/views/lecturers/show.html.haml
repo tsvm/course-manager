@@ -1,0 +1,12 @@
+= image_tag @lecturer.photo_url, :class=>"flow_left"
+%h1
+  = @lecturer.name
+%span
+  = @lecturer.info
+= @lecturer.about.html_safe
+- if @lecturer.courses
+  %h1
+    Курсове
+  - @lecturer.courses.each do |course|
+    .entry
+      = link_to course.title, course_path(course)

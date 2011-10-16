@@ -1,0 +1,33 @@
+.entry
+  .title
+    = @course.title
+.entry
+  %span.label от:
+  = "от #{I18n.l @course.start_date, locale: :bg} до #{I18n.l @course.end_date, locale: :bg}"
+.entry
+  %span.label Къде:
+  = @course.location
+  = link_to "карта", @course.map_url, :target => '_blank' unless @course.map.nil? || @course.map_url.nil?
+.entry
+  %span.label Лектори:
+  - @course.lecturers.each do |lecturer|
+    %br
+    = link_to lecturer.name, lecturer_path(lecturer)
+    &nbsp;
+    = lecturer.info
+.entry
+  %span.label Програма:
+  = @course.program.html_safe
+.entry
+  %span.label Участници:
+  = @course.audience
+.entry.registration
+  %span.label Регистрация:
+  - if @course.sold_out?
+    %span.emphasized
+      = t '.sold_out'
+    %br
+    = t '.sold_out_message'
+  - else
+    = @course.registration_notice.html_safe
+

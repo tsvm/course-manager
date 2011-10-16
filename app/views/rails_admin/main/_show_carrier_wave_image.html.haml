@@ -1,0 +1,4 @@
+- image = field.bindings[:object].send(field.name)
+- if image.path # the most direct check of an assets existence I could see
+  - thumb_version = image.versions[version]
+  = image_tag thumb_version && thumb_version.url || image.url
