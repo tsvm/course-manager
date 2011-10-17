@@ -5,6 +5,6 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    @enrollment = Enrollment,new
+    @enrollment = Enrollment.new
   end
 end

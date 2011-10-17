@@ -1,5 +1,8 @@
 class Course < ActiveRecord::Base
   has_and_belongs_to_many :lecturers
+  has_many :enrollments
+  has_many :resources, :as => :resource_container
+  has_many :topics
 
   validates :title, presence: true
   validates :start_date, presence: true
@@ -21,5 +24,9 @@ class Course < ActiveRecord::Base
 
   def expired?
     end_date < Date.today
+  end
+
+  def self.current
+    where('start_date <= ? AND end_date >= ?', Date.today, Date.today)
   end
 end

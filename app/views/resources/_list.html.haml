@@ -1,0 +1,5 @@
+- if resources
+  - resources.each do |resource|
+    = resource.name
+    = resource.description
+    = link_to 'свали', resource.resource_file_url, target: '_blank'

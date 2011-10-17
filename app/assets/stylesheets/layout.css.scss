@@ -1,4 +1,5 @@
-$header-color: #CCC;
+$header-color: black;
+$page-color: black;
 $bg-color: #f3f3f3;
 $notice-color: #ff3333;
 $emphasized-color: #cc3300;
@@ -28,7 +29,7 @@ h1 {
     display: block;
     width: 100%;
     margin: 0 auto;
-    background-color: white;
+    background-color: $page-color;
     min-height: 100%;
     position: relative;
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016201903) do
+ActiveRecord::Schema.define(:version => 20111017213530) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(:version => 20111016201903) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "topic_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "title"
@@ -85,6 +93,24 @@ ActiveRecord::Schema.define(:version => 20111016201903) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "resources", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "resource_file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "resource_container_id"
+    t.string   "resource_container_type"
+  end
+
+  create_table "solutions", :force => true do |t|
+    t.integer  "assignment_id"
+    t.integer  "student_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -104,5 +130,15 @@ ActiveRecord::Schema.define(:version => 20111016201903) do
 
   add_index "students", ["email"], :name => "index_students_on_email", :unique => true
   add_index "students", ["reset_password_token"], :name => "index_students_on_reset_password_token", :unique => true
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.integer  "course_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "topic_order"
+  end
 
 end

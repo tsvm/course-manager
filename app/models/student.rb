@@ -32,4 +32,8 @@ class Student < ActiveRecord::Base
   def enrolled_for_course?(course)
     courses.find_index(course)
   end
+
+  def sent_solution_for_assignment?(assignment)
+    Solution.find_by_assignment_id_and_student_id(assignment.id, id)
+  end
 end

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @course = Course.last
+    @courses = Course.current
     @enrollment = Enrollment.new
   end
 end

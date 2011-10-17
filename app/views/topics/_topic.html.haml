@@ -1,0 +1,31 @@
+= link_to @topic.course.title, course_path(@topic.course)
+.entry
+  %h2
+    = @topic.title
+  = I18n.l @topic.date
+  = @topic.content.html_safe
+
+= render partial: 'resources/list', locals: { resources: @topic.resources }
+
+%br
+- @topic.assignments.each do |assignment|
+  %h3
+    = assignment.title
+  = assignment.description
+  = render partial: 'resources/list', locals: { resources: assignment.resources }
+
+  %br
+  - if student_signed_in?
+    - if current_student.enrolled_for_course? @topic.course
+      - if current_student.sent_solution_for_assignment? assignment
+        Изпратил сте решение
+      - else
+        %br
+        Изпратете решение:
+        - @assignment = assignment
+        = render template: 'solutions/new'
+  - else
+    = link_to "Влезте в профила си", new_student_session_path
+    или се
+    = link_to "регистрирайте", new_student_registration_path
+    за да изпратите решение

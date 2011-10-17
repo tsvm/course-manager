@@ -1,0 +1,7 @@
+= simple_form_for @solution, :validate => true do |f|
+  %div.field
+    = f.input_field :comment, :placeholder => 'Коментар (не е задължителен)'
+    = hidden_field_tag 'solution[assignment_id]', @assignment.id
+
+  %br
+  = f.submit "Изпрати решение"

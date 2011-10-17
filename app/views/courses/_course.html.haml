@@ -9,15 +9,18 @@
   = @course.location
   = link_to "карта", @course.map_url, :target => '_blank' unless @course.map.nil? || @course.map_url.nil?
 .entry
+  %span.label Програма:
+  %br
+  - @course.topics.each do |topic|
+    = link_to "#{topic.topic_order}. #{topic.title}", topic_path(topic)
+    ,
+    = I18n.l topic.date
+
+.entry
   %span.label Лектори:
   - @course.lecturers.each do |lecturer|
     %br
     = link_to lecturer.name, lecturer_path(lecturer)
-    &nbsp;
-    = lecturer.info
-.entry
-  %span.label Програма:
-  = @course.program.html_safe
 .entry
   %span.label Участници:
   = @course.audience
@@ -31,3 +34,16 @@
   - else
     = @course.registration_notice.html_safe
 
+  %br
+  - if student_signed_in?
+    - if current_student.enrolled_for_course? @course
+      Записан сте за този курс
+    - else
+      = render template: 'enrollments/new'
+  - else
+    = link_to "Влезте в профила си", new_student_session_path
+    или се
+    = link_to "регистрирайте", new_student_registration_path
+    за да се запишете като участник в курса
+
+= render partial: 'resources/list', locals: { resources: @course.resources }
