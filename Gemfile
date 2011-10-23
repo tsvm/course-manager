@@ -5,7 +5,6 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'pg'
 
 
@@ -49,4 +48,5 @@ group :development, :test do
   gem 'simplecov', '>= 0.5.0', :require => false
   gem 'simplecov-rcov', :require => false
   gem 'flog', :require => false
+  gem 'sqlite3'
 end
