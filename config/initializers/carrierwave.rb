@@ -10,12 +10,6 @@ if Rails.env.development? or Rails.env.production? # Using Amazon S3 for Develop
     config.root = Rails.root.join('tmp')
     config.cache_dir = 'uploads'
 
-    config.storage = :fog
-    config.fog_credentials = {
-        :provider => 'AWS', # required
-        :aws_access_key_id => '', # required
-        :aws_secret_access_key => '', # required
-    }
-    config.fog_directory = 'coursemanager' # required
+    config.storage = :file
   end
 end
