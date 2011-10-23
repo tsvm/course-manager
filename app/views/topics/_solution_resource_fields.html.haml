@@ -1,0 +1,5 @@
+.nested-fields
+  = f.input :resource_file, :as => :file
+  = f.input :name, value: (f.object.name unless f.object.new_record?)
+
+  = link_to_remove_association t('.remove_file'), f
