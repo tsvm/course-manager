@@ -1,11 +1,20 @@
-$header-color: black;
-$page-color: black;
-$bg-color: #f3f3f3;
+$header-color: white;
+$page-color: white;
+$bg-color: white;
 $notice-color: #ff3333;
 $emphasized-color: #cc3300;
 $content-width: 960px;
 $link-color: #333;
 $white: white;
+$info-color: #339900;
+$error-color: #993300;
+$border-color: #F3F3F3;
+
+@mixin content-holder {
+  padding: 10px;
+  width: $content-width;
+  margin: 0 auto 0 auto;
+}
 
 html, body {
     margin: 0;
@@ -40,62 +49,28 @@ img {
 
 #header {
     width: 100%;
-    height: 100px;
     background-color: $header-color;
 
     #header_content {
-        width: 960px;
-        margin: 0 auto;
+        @include content-holder;
         position: relative;
-        
-        #eu_logo {
-            width: 410px;
-            margin: 0 auto 0 auto;
-        }
 
-        #empower_on_rails {
-            width: 900px;
-            margin: 0 auto 0 auto;
-        }
-
-        #rails_logo {
-          position: absolute;
-          bottom: 0;
-          left: 20px;
-        }
-
-        #ruby_logo {
-          position: absolute;
-          bottom: 0;
-          right: 40px;
-        }
-
-        #approved {
-          position: absolute;
-          bottom: -20px;
-          left: 420px;
-
-          a {
-            color: $white;
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
+        #logo {
+          height: 230px;
 
           img {
-            width: 20px;
-            vertical-align: bottom;
+            float: left;
           }
 
-          span {
-            vertical-align: middle;
-            color: $white;
-            font-size: 15px;
+          #header_text {
+            margin: 50px 0 0 50px;
+            float: left;
+            font-size: 26pt;
           }
         }
     }
+
+    border-bottom: solid 2px $border-color;
 }
 
 #content_wrapper {
@@ -106,10 +81,10 @@ img {
 }
 
 #content {
+  @include content-holder;
+
     padding: 10px;
-    width: $content-width;
     background-color: $bg-color;
-    margin: 0 auto 0 auto;
  }
 
 .entry {
@@ -185,7 +160,6 @@ img {
 }
 
 #footer {
-    height: 50px;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -193,8 +167,7 @@ img {
     font-size: 11px;
 
     #footer_content {
-        width: 960px;
-        margin: 0 auto 0 auto;
+        @include content-holder;
 
         #footer_left {
           float: left;
@@ -206,3 +179,17 @@ img {
     }
 }
 
+.info {
+  color: $info-color;
+}
+
+#page_content {
+  border-left: 10px solid #F3F3F3;
+  border-right: 10px solid #F3F3F3;
+
+  @include content-holder;
+
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+}

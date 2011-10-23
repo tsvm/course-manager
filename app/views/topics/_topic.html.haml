@@ -11,16 +11,17 @@
 - @topic.assignments.each do |assignment|
   %h3
     = assignment.title
-  = assignment.description
+  = assignment.description.html_safe
   = render partial: 'resources/list', locals: { resources: assignment.resources }
 
+  %br
   %br
   - if student_signed_in?
     - if current_student.enrolled_for_course? @topic.course
       - if current_student.sent_solution_for_assignment? assignment
-        Изпратил сте решение
+        %span.info
+          Изпратил сте решение на тази задача
       - else
-        %br
         Изпратете решение:
         - @assignment = assignment
         = render template: 'solutions/new'

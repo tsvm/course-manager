@@ -1,10 +1,11 @@
 - if @courses && @courses.count > 0
+  %h1
+    Курсове, протичащи в момента
   - @courses.each do |course|
-    = link_to course.title, course_path(course)
-    = course.location
+    = render partial: 'courses/short_info', locals: { course: course }
 
 - else
-  %p В момента няма никакви създадени курсове. Моля използвайте <a href="/admin/">административния интерфейс</a>, за да създадете курс.
+  %p В момента няма активни курсове
 
 %br
 %span.notice

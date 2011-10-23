@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111017213530) do
+ActiveRecord::Schema.define(:version => 20111022133435) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20111017213530) do
   create_table "courses", :force => true do |t|
     t.string   "title"
     t.string   "poster"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.string   "location"
     t.string   "map"
     t.text     "program"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20111017213530) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
+    t.integer  "year",       :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end

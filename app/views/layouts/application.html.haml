@@ -7,17 +7,23 @@
     = csrf_meta_tag
 %body
   #page
-    #header
-      #header_content
-        - if student_signed_in?
-          = "Hi, #{current_student.first_name} |"
-          = link_to "изход", destroy_student_session_path
-    #content_wrapper
-      #content
-        = yield
+    #page_content
+      #header
+        #header_content
+          #logo
+            = link_to image_tag('yoda.png'), root_path
+            #header_text
+              May the force be with you
+          - if student_signed_in?
+            = 'Здравей,'
+            = link_to current_student.first_name, edit_student_registration_path
+            |
+            = link_to "изход", destroy_student_session_path
+      #content_wrapper
+        #content
+          = yield
 
-    #footer
-      %hr
-      #footer_content
-        #footer_left
-        #footer_right
+      #footer
+        #footer_content
+          #footer_left
+          #footer_right

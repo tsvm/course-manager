@@ -2,8 +2,8 @@
   .title
     = @course.title
 .entry
-  %span.label от:
-  = "от #{I18n.l @course.start_date, locale: :bg} до #{I18n.l @course.end_date, locale: :bg}"
+  %span.label Кога:
+  = "от #{I18n.l @course.start_date, :locale => :bg} до #{I18n.l @course.end_date, :locale => :bg}"
 .entry
   %span.label Къде:
   = @course.location
@@ -12,9 +12,11 @@
   %span.label Програма:
   %br
   - @course.topics.each do |topic|
-    = link_to "#{topic.topic_order}. #{topic.title}", topic_path(topic)
+    = "#{topic.topic_order}."
+    = link_to "#{topic.title}", topic_path(topic)
     ,
     = I18n.l topic.date
+    %br
 
 .entry
   %span.label Лектори:
@@ -37,7 +39,8 @@
   %br
   - if student_signed_in?
     - if current_student.enrolled_for_course? @course
-      Записан сте за този курс
+      %span.info
+        Записан сте за този курс
     - else
       = render template: 'enrollments/new'
   - else

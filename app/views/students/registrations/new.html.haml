@@ -1,7 +1,7 @@
 %h2
   Sign up
 
-= simple_form_for(@student, :url => registration_path(:student)) do |f|
+= simple_form_for(@student, url: registration_path(:student)) do |f|
   = f.error_notification 
 
   .inputs

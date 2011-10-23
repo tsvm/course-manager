@@ -1,5 +1,5 @@
 class Lecturer < ActiveRecord::Base
-  default_scope :order => 'first_name, last_name'
+  default_scope order: 'first_name, last_name'
 
   has_and_belongs_to_many :courses
 
