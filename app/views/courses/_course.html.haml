@@ -2,14 +2,23 @@
   .title
     = @course.title
 .entry
-  %span.label Кога:
-  = "от #{I18n.l @course.start_date, :locale => :bg} до #{I18n.l @course.end_date, :locale => :bg}"
+  %span.label
+    = t '.where'
+  = "#{t '.from'} #{I18n.l @course.start_date, :locale => :bg} #{t '.to'} #{I18n.l @course.end_date, :locale => :bg}"
 .entry
-  %span.label Къде:
+  %span.label
+    = t '.location'
   = @course.location
-  = link_to "карта", @course.map_url, :target => '_blank' unless @course.map.nil? || @course.map_url.nil?
+  = link_to t('.map'), @course.map_url, :target => '_blank' unless @course.map.nil? || @course.map_url.nil?
+
+- if @course.about
+  .entry
+    %span.label
+      = t '.about'
+    = @course.about.html_safe
 .entry
-  %span.label Програма:
+  %span.label
+    = t'.program'
   %br
   - @course.topics.each do |topic|
     = "#{topic.topic_order}."
@@ -19,15 +28,18 @@
     %br
 
 .entry
-  %span.label Лектори:
+  %span.label
+    = t'.lecturers'
   - @course.lecturers.each do |lecturer|
     %br
     = link_to lecturer.name, lecturer_path(lecturer)
 .entry
-  %span.label Участници:
+  %span.label
+    = t'.audience'
   = @course.audience
 .entry.registration
-  %span.label Регистрация:
+  %span.label
+    = t'.registration'
   - if @course.sold_out?
     %span.emphasized
       = t '.sold_out'
@@ -40,13 +52,16 @@
   - if student_signed_in?
     - if current_student.enrolled_for_course? @course
       %span.info
-        Записан сте за този курс
+        = t'.enrolled_for_course'
+    -elsif current_student.has_pending_enrollment_for_course? @course
+      %span.info
+        = t'.pending_enrollment_for_course'
     - else
       = render template: 'enrollments/new'
   - else
-    = link_to "Влезте в профила си", new_student_session_path
-    или се
-    = link_to "регистрирайте", new_student_registration_path
-    за да се запишете като участник в курса
+    = link_to t('.sign_in'), new_student_session_path
+    = t '.or'
+    = link_to t('.register'), new_student_registration_path
+    = t '.to_enroll'
 
 = render partial: 'resources/list', locals: { resources: @course.resources }

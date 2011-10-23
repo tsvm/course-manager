@@ -1,0 +1,22 @@
+bg:
+  activerecord:
+    attributes:
+      student:
+        first_name: 'Име'
+        last_name: 'Фамилия'
+        email: 'E-mail'
+        password: 'Парола'
+        password_confirmation: 'Потвърждение на паролата'
+        current_password: 'Текуща парола'
+
+    errors:
+      models:
+        student:
+          attributes:
+            email:
+              taken: '  E-mail адресът е зает'
+              email: '  невалиден e-mail формат'
+            password:
+              too_short: 'Паролата не може да бъде по-кратка от 8 символа'
+              confirmation: 'Паролата и потвърждението ѝ не съвпадат'
+

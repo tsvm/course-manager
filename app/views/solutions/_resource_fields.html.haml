@@ -2,4 +2,4 @@
   = f.input :name, value: (f.object.name unless f.object.new_record?)
   = f.input :resource_file, :as => :file
 
-  = link_to_remove_association "Премахни файл", f
+  = link_to_remove_association т('.remove_file'), f

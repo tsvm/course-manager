@@ -1,4 +1,4 @@
-bg:
+en: #TODO Translate the texts in English!!!
   courses:
     course:
       title: ''
@@ -17,7 +17,7 @@ bg:
       or: 'или се'
       register: 'регистрирайте'
       to_enroll: 'за да се запишете като участник в курса'
-      about: 'За курса:'
+      about: 'About the course:'
     short_info:
       from: 'от'
       to: 'до'
@@ -56,10 +56,10 @@ bg:
   students:
     registrations:
       new:
-        sign_up: 'Регистрация'
+        sign_up: 'Registration'
       edit:
-        my_profile: 'Профил'
-        password_hint: 'Ако не искате да променяте паролата, я оставете празна' # EN 'leave it blank if you don\'t want to change it'
+        my_profile: 'Profile'
+        password_hint: 'Ако не искате да я променяте паролата, я оставете празна' # EN 'leave it blank if you don\'t want to change it'
         old_password_hint: 'За да запазите промените, въведете паролата си'
         update: 'Запази промените'
         back: 'Назад'
@@ -71,22 +71,16 @@ bg:
 
   topics:
     topic:
-
-  assignments:
-    assignment:
       solution_sent: 'Изпратил сте решение на тази задача'
       send_a_solution: 'Изпратете решение:'
       sign_in: 'Влезте в профила си'
       or: 'или се'
       register: 'регистрирайте'
-      to_send_a_solution: ', за да изпратите решение'
-      need_to_enroll: 'Запишете се за'
-      course: 'курса'
+      to_send_a_solution: 'за да изпратите решение'
 
   home:
     index:
       current_courses: 'Курсове, протичащи в момента'
       no_current_courses: 'В момента няма активни курсове'
-      courses: 'Всички курсове'
 
 

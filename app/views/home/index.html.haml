@@ -1,15 +1,10 @@
 - if @courses && @courses.count > 0
   %h1
-    Курсове, протичащи в момента
+    = t '.current_courses'
   - @courses.each do |course|
     = render partial: 'courses/short_info', locals: { course: course }
 
 - else
-  %p В момента няма активни курсове
-
-%br
-%span.notice
-  = flash[:notice]
-
-%br
-
+  %p
+    = t '.no_current_courses'
+    = link_to t('.courses'), courses_path

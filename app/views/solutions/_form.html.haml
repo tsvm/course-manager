@@ -1,13 +1,14 @@
 = simple_form_for(@solution, validate: true, html: {multipart: true}) do |f|
   %div.field
-    = f.input_field :comment, placeholder: 'Коментар (не е задължителен)'
+    = f.input_field :comment, placeholder: t('.comment')
     = hidden_field_tag 'solution[assignment_id]', @assignment.id
 
-  %h3 Файлове
+  %h3
+    = t '.files'
   #resources
     = f.simple_fields_for :resources do |resource|
       = render 'solutions/resource_fields', f: resource
     .links
-      = link_to_add_association 'Добави файл', f, :resources
+      = link_to_add_association t('.add_file'), f, :resources
   %br
-  = f.submit "Изпрати решение"
+  = f.submit t('.send_solution')

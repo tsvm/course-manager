@@ -1,2 +1,3 @@
 = simple_form_for @enrollment, validate: true do |f|
-  = f.submit "Запишете се за курса"
+  = hidden_field_tag 'course_id', @course.id
+  = f.submit t('enrollments.enroll_for_course')

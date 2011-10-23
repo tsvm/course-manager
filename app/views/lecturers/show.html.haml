@@ -6,7 +6,7 @@
 = @lecturer.about.html_safe
 - if @lecturer.courses
   %h1
-    Курсове
+    = t '.courses'
   - @lecturer.courses.each do |course|
     .entry
       = link_to course.title, course_path(course)

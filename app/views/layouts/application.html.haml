@@ -13,12 +13,13 @@
           #logo
             = link_to image_tag('yoda.png'), root_path
             #header_text
-              May the force be with you
-          - if student_signed_in?
-            = 'Здравей,'
-            = link_to current_student.first_name, edit_student_registration_path
-            |
-            = link_to "изход", destroy_student_session_path
+              = t '.header_text'
+          #login
+            - if student_signed_in?
+              = t '.hi'
+              = link_to current_student.first_name, edit_student_registration_path
+              |
+              = link_to t('.logout'), destroy_student_session_path, :method => :delete
       #content_wrapper
         #content
           = yield

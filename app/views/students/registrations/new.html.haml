@@ -1,7 +1,7 @@
 %h2
-  Sign up
+  = t '.sign_up'
 
-= simple_form_for(@student, url: registration_path(:student)) do |f|
+= simple_form_for(@student, url: registration_path(:student), validate: true) do |f|
   = f.error_notification 
 
   .inputs
@@ -11,7 +11,8 @@
     = f.input :password, :required => true 
     = f.input :password_confirmation, :required => true 
 
+  %br
   .actions
-    = f.button :submit, "Sign up" 
+    = f.button :submit, t('.sign_up')
 
 = render :partial => "devise/shared/links" 

@@ -1,0 +1,25 @@
+%h3
+  = assignment.title
+= assignment.description.html_safe
+= render partial: 'resources/list', locals: { resources: assignment.resources }
+%br
+%br
+- if assignment.accept_solution?
+  - if student_signed_in? && current_student
+    - if current_student.enrolled_for_course? @topic.course
+      - if current_student.sent_solution_for_assignment? assignment
+        %span.info
+          = t '.solution_sent'
+      - else
+        = t '.send_a_solution'
+        - @assignment = assignment
+        = render template: 'solutions/new'
+    - else
+      = t '.need_to_enroll'
+      = link_to t('.course'), course_path(assignment.topic.course)
+      = t '.to_send_a_solution'
+  - else
+    = link_to t('.sign_in'), new_student_session_path
+    или се
+    = link_to t('.register'), new_student_registration_path
+    = t '.to_send_a_solution'

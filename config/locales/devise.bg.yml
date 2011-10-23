@@ -6,24 +6,24 @@ en:
       expired: "е изтакла, моля, изберете нова"
       not_found: "не е намерен"
       already_confirmed: "вече е потвърден, моля, опитайте да се логнете отново"
-      not_locked: "was not locked"
+      not_locked: "не е заключен"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 грешка попречи на %{resource} да бъде записан:"
+        other: "%{count} грешки попречиха на %{resource} да бъде записан:"
 
   devise:
     failure:
-      already_authenticated: 'You are already signed in.'
-      unauthenticated: 'You need to sign in or sign up before continuing.'
-      unconfirmed: 'You have to confirm your account before continuing.'
-      locked: 'Your account is locked.'
-      invalid: 'Invalid email or password.'
+      already_authenticated: 'Вече сте логнат'
+      unauthenticated: 'Трябва да се логнете, за да продължите.'
+      unconfirmed: 'Трябва да потвърдите акаунта си преди да продължите.'
+      locked: 'Акаунтът ви е заключен.'
+      invalid: 'Невалиден e-mail или парола.'
       invalid_token: 'Invalid authentication token.'
-      timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
+      timeout: 'Сесията ви е изтекла, моля влезте отново, за да продължите.'
+      inactive: 'Акаунтът ви все още не е активиран.'
     sessions:
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      signed_in: 'Успешен вход.'
+      signed_out: 'Успешен изход.'
     passwords:
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'

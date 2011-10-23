@@ -1,5 +1,7 @@
 %h2
-  Sign in
+  = t '.sign_in'
+
+= flash[:error]
 
 = simple_form_for(@student, as: :student, :url => session_path(:student)) do |f|
   .inputs
@@ -8,6 +10,6 @@
     = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
 
   .actions
-    = f.button :submit, "Sign in"
+    = f.button :submit, t('.sign_in')
 
 = render :partial => "devise/shared/links"

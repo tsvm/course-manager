@@ -3,30 +3,12 @@
   %h2
     = @topic.title
   = I18n.l @topic.date
+  %br
+  %br
   = @topic.content.html_safe
 
 = render partial: 'resources/list', locals: { resources: @topic.resources }
 
 %br
 - @topic.assignments.each do |assignment|
-  %h3
-    = assignment.title
-  = assignment.description.html_safe
-  = render partial: 'resources/list', locals: { resources: assignment.resources }
-
-  %br
-  %br
-  - if student_signed_in?
-    - if current_student.enrolled_for_course? @topic.course
-      - if current_student.sent_solution_for_assignment? assignment
-        %span.info
-          Изпратил сте решение на тази задача
-      - else
-        Изпратете решение:
-        - @assignment = assignment
-        = render template: 'solutions/new'
-  - else
-    = link_to "Влезте в профила си", new_student_session_path
-    или се
-    = link_to "регистрирайте", new_student_registration_path
-    за да изпратите решение
+  = render partial: 'assignments/assignment', locals: { assignment: assignment }

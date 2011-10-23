@@ -22,3 +22,5 @@ bg:
     errors:
       messages:
         blank: "* Полето е задължително"
+
+

@@ -1,5 +1,4 @@
 %h1
-  Курсове
+  = t '.courses'
 - @courses.each do |course|
-  .entry
-    = link_to course.title, course_path(course)
+  = render partial: 'courses/short_info', locals: { course: course }

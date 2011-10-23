@@ -8,12 +8,22 @@ $link-color: #333;
 $white: white;
 $info-color: #339900;
 $error-color: #993300;
+$model-error-color: red;
 $border-color: #F3F3F3;
 
 @mixin content-holder {
   padding: 10px;
   width: $content-width;
   margin: 0 auto 0 auto;
+}
+
+@mixin vertical-gradient($from-color, $to-color) {
+  background: $from-color;
+  background: -moz-linear-gradient(top, $from-color, $to-color);
+  background: -webkit-gradient(linear,
+              left top, left bottom, from($from-color), to($to-color));
+  filter: progid:DXImageTransform.Microsoft.Gradient(
+              StartColorStr=$from-color, EndColorStr=$to-color, GradientType=0);
 }
 
 html, body {
@@ -41,6 +51,21 @@ h1 {
     background-color: $page-color;
     min-height: 100%;
     position: relative;
+
+    @include vertical-gradient(#CCC, white);
+
+    #page_content {
+      border-left: 10px solid #F3F3F3;
+      border-right: 10px solid #F3F3F3;
+
+      @include content-holder;
+      padding: 0;
+
+      overflow: hidden;
+      min-height: 100%;
+      position: relative;
+      background-color: white;
+    }
 }
 
 img {
@@ -65,8 +90,15 @@ img {
           #header_text {
             margin: 50px 0 0 50px;
             float: left;
-            font-size: 26pt;
+            font-size: 30pt;
           }
+        }
+
+        #login {
+          float: left;
+          position: absolute;
+          bottom: 10px;
+          right: 30px;
         }
     }
 
@@ -183,13 +215,36 @@ img {
   color: $info-color;
 }
 
-#page_content {
-  border-left: 10px solid #F3F3F3;
-  border-right: 10px solid #F3F3F3;
+.error, .error_notification {
+  color: $model-error-color;
+}
 
-  @include content-holder;
+div.inputs {
+  width: 900px;
 
-  overflow: hidden;
-  min-height: 100%;
-  position: relative;
+  .input {
+    label {
+      width: 150px;
+      display: inline;
+      float: left;
+    }
+
+    input {
+      width: 250px;
+    }
+
+  }
+}
+
+.back {
+  text-decoration: none;
+}
+
+.hint {
+  clear: left;
+  margin-left: 140px;
+  font-size: 12px;
+  color: #555;
+  display: block;
+  font-style: italic;
 }

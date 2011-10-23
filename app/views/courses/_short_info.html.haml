@@ -1,6 +1,6 @@
 .entry
   = link_to course.title, course_path(course)
   %br
-  = "от #{I18n.l course.start_date, :locale => :bg} до #{I18n.l course.end_date, :locale => :bg}"
+  = "#{t '.from'} #{I18n.l course.start_date, :locale => :bg} #{t '.from'} #{I18n.l course.end_date, :locale => :bg}"
   %br
   = course.location

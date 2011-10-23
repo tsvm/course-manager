@@ -5,10 +5,10 @@ CourseManager::Application.routes.draw do
   resources :topics, only: [:show]
   resources :solutions, only: [:create]
 
+  devise_for :students
+
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  devise_for :students
 
   get 'home/index'
   root :to => 'home#index'

@@ -1,14 +1,13 @@
 class Course < ActiveRecord::Base
   has_and_belongs_to_many :lecturers
-  has_many :enrollments
-  has_many :resources, :as => :resource_container
-  has_many :topics
+  has_many :enrollments, :dependent => :delete_all
+  has_many :resources, :as => :resource_container, :dependent => :delete_all
+  has_many :topics, :dependent => :delete_all
 
   validates :title, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :location, presence: true
-  validates :program, presence: true
   validates :audience, presence: true
 
   mount_uploader :map, CourseMapUploader
