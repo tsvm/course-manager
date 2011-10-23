@@ -5,8 +5,8 @@
 %br
 %br
 - if assignment.accept_solution?
-  - if student_signed_in? && current_student
-    - if current_student.enrolled_for_course? @topic.course
+  - if student_signed_in?
+    - if current_student.enrolled_for_course? assignment.topic.course
       - if current_student.sent_solution_for_assignment? assignment
         %span.info
           = t '.solution_sent'

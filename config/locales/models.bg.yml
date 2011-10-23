@@ -8,6 +8,9 @@ bg:
         password: 'Парола'
         password_confirmation: 'Потвърждение на паролата'
         current_password: 'Текуща парола'
+      resource:
+        name: 'Описание'
+        resource_file: 'Избери файл'
 
     errors:
       models:

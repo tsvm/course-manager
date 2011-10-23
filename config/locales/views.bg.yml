@@ -50,8 +50,6 @@ bg:
       files: 'Файлове'
       add_file: 'Добави файл'
       send_solution: 'Изпрати решение'
-    resource_fields:
-      remove_file: 'Премахни файл'
 
   students:
     registrations:
@@ -70,7 +68,8 @@ bg:
         sign_in: 'Вход'
 
   topics:
-    topic:
+    solution_resource_fields:
+      remove_file: 'Премахни файл'
 
   assignments:
     assignment:
